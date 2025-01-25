@@ -21,6 +21,7 @@ export const navbarLinks = [
     color: 'var(--mantine-color-indigo-7)',
     href: '/play/progress',
   },
+
   {
     label: 'Resources',
     icon: Lifebuoy,
