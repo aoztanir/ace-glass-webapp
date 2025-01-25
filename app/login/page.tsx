@@ -33,7 +33,7 @@ export default function LoginPage() {
         }}
       >
         <BackgroundImage
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmWaqX75cYh_sDjsW9ZjDNdwSEu7g-KEZRgg&s"
+          src="https://www.oakvillehomeleisure.ca/wp-content/uploads/2023/12/Stack-of-colourful-poker-chips.png"
           style={{ width: '100%', height: '100%' }}
         />
       </div>

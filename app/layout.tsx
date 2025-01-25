@@ -3,12 +3,15 @@ import '@/globals.css';
 
 import React from 'react';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
 import { AuthProvider } from '@/components/User/AuthProvider';
 import { theme } from '../theme';
 
+import '@mantine/notifications/styles.css';
+
 export const metadata = {
-  title: 'Mantine Next.js template',
+  title: 'Ace Poker',
   description: 'I am using Mantine with Next.js!',
 };
 
@@ -35,7 +38,10 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <AuthProvider>
-          <MantineProvider theme={theme}>{children}</MantineProvider>
+          <MantineProvider theme={theme}>
+            <Notifications />
+            {children}
+          </MantineProvider>
         </AuthProvider>
       </body>
     </html>

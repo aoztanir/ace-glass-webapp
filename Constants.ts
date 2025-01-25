@@ -1,5 +1,6 @@
 import {
   AlignLeft,
+  Barbell,
   ChartBar,
   ChartLine,
   GameController,
@@ -23,10 +24,10 @@ export const navbarLinks = [
   },
 
   {
-    label: 'Resources',
-    icon: Lifebuoy,
+    label: 'Practice',
+    icon: Barbell,
     color: 'var(--mantine-color-orange-7)',
-    href: '/play/resources',
+    href: '/play/practice',
   },
 
   {
