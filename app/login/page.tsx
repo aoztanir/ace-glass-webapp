@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { ArrowLeft, GoogleLogo } from '@phosphor-icons/react';
 import { BackgroundImage, Box, Button, Card, Container, Flex, Text, Title } from '@mantine/core';
 import { createClient } from '../../utils/supabase/client';
@@ -21,6 +22,7 @@ export default function LoginPage() {
     }
   };
 
+  const router = useRouter();
   return (
     <div style={{ display: 'flex', height: '100vh' }}>
       <div
@@ -47,7 +49,7 @@ export default function LoginPage() {
             variant="outline"
             radius="md"
             size="xs"
-            onClick={() => window.history.back()}
+            onClick={() => router.push('/')}
           >
             Back
           </Button>

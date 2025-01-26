@@ -2,7 +2,17 @@
 
 import { useEffect, useState } from 'react';
 import { transform } from 'next/dist/build/swc/generated-native';
-import { Club, Diamond, Heart, PokerChip, Spade, Table } from '@phosphor-icons/react';
+import {
+  Club,
+  Diamond,
+  Eyeglasses,
+  Heart,
+  Info,
+  PokerChip,
+  Spade,
+  Sunglasses,
+  Table,
+} from '@phosphor-icons/react';
 import { prop } from 'cheerio/dist/commonjs/api/attributes';
 import {
   Avatar,
@@ -13,39 +23,13 @@ import {
   Group,
   SimpleGrid,
   Stack,
+  Text,
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import CardComponent from '@/components/CardComponent';
 import { useUser } from '@/components/User/AuthProvider';
 import { createClient } from '../../utils/supabase/client';
-
-const getSuitIcon = (suit) => {
-  switch (suit) {
-    case 'hearts':
-      return <Heart weight="fill" size={30} style={{ display: 'block', margin: '0 auto' }} />;
-    case 'spades':
-      return <Spade weight="fill" size={30} style={{ display: 'block', margin: '0 auto' }} />;
-    case 'clubs':
-      return <Club weight="fill" size={30} style={{ display: 'block', margin: '0 auto' }} />;
-    case 'diamonds':
-      return <Diamond weight="fill" size={30} style={{ display: 'block', margin: '0 auto' }} />;
-    default:
-      return null;
-  }
-};
-
-const getSuitColor = (suit) => {
-  switch (suit) {
-    case 'hearts':
-    case 'diamonds':
-      return 'red.7';
-    case 'spades':
-    case 'clubs':
-      return 'var(--mantine-color-text)';
-    default:
-      return 'var(--mantine-color-text)';
-  }
-};
 
 export default function PlayPage() {
   const [myCards, setMyCards] = useState([]);
@@ -86,7 +70,24 @@ export default function PlayPage() {
 
   return (
     <>
-      <Card withBorder shadow="xl" radius="md" p="xl" bg="teal.9">
+      <Flex align="center" gap={10}>
+        <Sunglasses size={40} />
+        <Title order={1} className="artsy-text" mb="0">
+          Play Live Poker
+        </Title>
+      </Flex>
+
+      <Flex gap={0} align="center">
+        <ThemeIcon variant="transparent" size="lg">
+          <Info size={20} />
+        </ThemeIcon>
+        <Text size="md" c="dimmed">
+          This is a rendition of what you're seeing live through the Ace Glass. Watch as the AI
+          dealer reveals cards on the table and in your hand. Start a game with Ace Glass to play.
+        </Text>
+      </Flex>
+
+      <Card withBorder shadow="xl" radius="md" p="xl" bg="teal.9" mt="md">
         <SimpleGrid cols={5} spacing="xl">
           {tableCards?.map((card) => <CardComponent card={card} key={card.rank + card.suit} />)}
         </SimpleGrid>
@@ -110,61 +111,3 @@ export default function PlayPage() {
     </>
   );
 }
-
-const CardComponent = ({ card, ...props }) => {
-  const { user } = useUser();
-  return (
-    <Card shadow="xl" radius="lg" withBorder key={card.id} className="scale-on-hover" {...props}>
-      <Flex align="baseline">
-        <Stack justify="left" align="center" w="fit-content" gap="0">
-          <Title order={3} className="artsy-text" fz="40px" mt="0" c={getSuitColor(card.suit)}>
-            {card.rank}
-          </Title>
-          <ThemeIcon
-            variant="transparent"
-            size={64}
-            style={{ display: 'block', margin: '0 auto' }}
-            c={getSuitColor(card.suit)}
-            ml="0"
-          >
-            {getSuitIcon(card.suit)}
-          </ThemeIcon>
-        </Stack>
-        {card?.owner === 'player' ? (
-          <Avatar ml="auto" mr="0" src={user?.user_metadata?.avatar_url} size="sm" radius="xl" />
-        ) : (
-          <ThemeIcon size="md" variant="transparent" ml="auto" mr="0">
-            <PokerChip size="25px" radius="xl" />
-          </ThemeIcon>
-        )}
-      </Flex>
-
-      <Stack justify="left" align="center" w="fit-content" gap="0" mr="auto" ml="auto" my="5px">
-        <ThemeIcon
-          variant="transparent"
-          size={50}
-          style={{ display: 'block', margin: '0 auto' }}
-          c={getSuitColor(card.suit)}
-          ml="0"
-        >
-          {getSuitIcon(card.suit)}
-        </ThemeIcon>
-      </Stack>
-      <Stack justify="left" align="center" w="fit-content" gap="0" mr="0" ml="auto">
-        <Title order={3} className="artsy-text" fz="40px" mt="0" c={getSuitColor(card.suit)}>
-          {card.rank}
-        </Title>
-        <ThemeIcon
-          variant="transparent"
-          size={50}
-          style={{ display: 'block', margin: '0 auto' }}
-          c={getSuitColor(card.suit)}
-          ml="0"
-        >
-          {getSuitIcon(card.suit)}
-        </ThemeIcon>
-      </Stack>
-      <SimpleGrid cols={3} spacing="md"></SimpleGrid>
-    </Card>
-  );
-};

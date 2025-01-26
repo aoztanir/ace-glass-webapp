@@ -11,8 +11,8 @@ import { theme } from '../theme';
 import '@mantine/notifications/styles.css';
 
 export const metadata = {
-  title: 'Ace Poker',
-  description: 'I am using Mantine with Next.js!',
+  title: 'Ace Glass',
+  description: 'Building the future of poker glasses.',
 };
 
 export default function RootLayout({ children }: { children: any }) {

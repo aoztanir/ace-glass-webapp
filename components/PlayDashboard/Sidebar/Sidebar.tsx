@@ -162,32 +162,6 @@ export default function NavbarSearch() {
           </Stack>
         </Box>
       </div>
-      <Divider mb="sm" />
-      {compressed ? (
-        <>
-          <ThemeIcon variant="transparent" mx="auto" w="100%">
-            {/* <Barbell weight="fill" size={25} color="var(--mantine-color-red-7)" /> */}
-            <Text ta="center" fz="30">
-              🏋️‍♂️
-            </Text>
-          </ThemeIcon>
-        </>
-      ) : (
-        <Box className={classes.section} px="5">
-          <Group className={classes.collectionsHeader} justify="space-between">
-            <Text size="xs" fw={500} c="dimmed">
-              🏋️‍♂️ Practice here!
-            </Text>
-
-            <ActionIcon variant="transparent" size={18} c="dimmed">
-              <ArrowDown weight="bold" />
-            </ActionIcon>
-          </Group>
-          <div style={{ zIndex: 100000 }} className={classes.collections}>
-            {collectionLinks}
-          </div>
-        </Box>
-      )}
 
       <Flex
         justify="center"

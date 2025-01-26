@@ -11,7 +11,7 @@ import {
 
 export const navbarLinks = [
   {
-    label: 'Games',
+    label: 'Live Games',
     icon: GameController,
     color: 'var(--mantine-color-red-7)',
     href: '/play',
