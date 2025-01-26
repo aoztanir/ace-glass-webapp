@@ -13,25 +13,26 @@ import {
   Text,
   Title,
 } from '@mantine/core';
+import Logo from './Logo';
 
 const LandingPage = () => {
   return (
     <Container size="lg">
       {/* Hero Section */}
-      <section style={{ display: 'flex', alignItems: 'center', padding: '50px 0' }}>
-        <div style={{ flex: 1, textAlign: 'center' }}>
+      <section style={{ display: 'flex', alignItems: 'center', padding: '80px 0' }}>
+        <div style={{ flex: 1, textAlign: 'center', marginRight: '60px' }}>
           <Title
             order={1}
             ta="left"
             className="artsy-text"
-            style={{ marginBottom: '20px', fontSize: '100px' }}
+            style={{ marginBottom: '30px', fontSize: '100px' }}
           >
             Ace
           </Title>
           <Text
             size="xl"
             color="dimmed"
-            style={{ marginBottom: '30px', fontSize: '1.25rem' }}
+            style={{ marginBottom: '40px', fontSize: '1.25rem' }}
             ta="left"
           >
             Your ultimate poker glasses powered by Raspberry Pi and built to help you play and learn
@@ -43,7 +44,7 @@ const LandingPage = () => {
             </Button>
           </Flex>
         </div>
-        <PokerChip size={128} style={{ flex: 1, maxWidth: '50%' }} />
+        <Logo size={256} />
       </section>
 
       {/* Features Section */}
@@ -150,7 +151,7 @@ const LandingPage = () => {
         }}
       >
         <Text size="sm" color="dimmed">
-          © 2023 Ace Poker Bot. All rights reserved.
+          © 2023 Ace Glass. All rights reserved.
         </Text>
       </div>
     </Container>

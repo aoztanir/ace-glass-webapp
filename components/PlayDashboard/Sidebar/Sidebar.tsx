@@ -23,6 +23,7 @@ import {
   UnstyledButton,
 } from '@mantine/core';
 import { useHover } from '@mantine/hooks';
+import Logo from '@/components/Logo';
 import { navbarLinks } from '@/Constants';
 import { useActiveLinkStore } from '@/stores/activeLinkStore';
 import { useNavbarCompressedStore } from '@/stores/navbarCompressedStore';
@@ -150,6 +151,7 @@ export default function NavbarSearch() {
       <Box className={classes.section} px="md" pt={compressed ? 'md' : '0'}>
         <Box w="100%" h="100%">
           {/* <Logo nameIncluded={!compressed} /> */}
+          <Logo size={40} href="/" mx="auto" />
         </Box>
       </Box>
       <Divider my="sm" />
